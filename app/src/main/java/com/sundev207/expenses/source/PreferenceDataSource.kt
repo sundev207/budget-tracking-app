@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.sundev207.expenses.R
 import com.sundev207.expenses.infrastructure.utils.CurrencyConverter
-import com.sundev207.expenses.model.Currency
+import com.sundev207.expenses.data.Currency
 
 class PreferenceDataSource {
 

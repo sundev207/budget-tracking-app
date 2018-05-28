@@ -1,7 +1,7 @@
 package com.sundev207.expenses
 
 import androidx.room.Room
-import com.sundev207.expenses.model.ApplicationDatabase
+import com.sundev207.expenses.data.database.ApplicationDatabase
 
 class Application : android.app.Application() {
 

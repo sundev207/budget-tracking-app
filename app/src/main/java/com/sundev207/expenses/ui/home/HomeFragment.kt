@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sundev207.expenses.R
 import com.sundev207.expenses.infrastructure.extensions.application
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
-import com.sundev207.expenses.model.Expense
+import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.ui.MainActivity
 import io.reactivex.disposables.CompositeDisposable
 
@@ -108,6 +109,7 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.item_settings -> settingsSelected()
+            R.id.item_filter -> filterSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -115,5 +117,16 @@ class HomeFragment : Fragment() {
     private fun settingsSelected(): Boolean {
         (requireActivity() as MainActivity).navigateToSettings()
         return true
+    }
+
+    private fun filterSelected(): Boolean {
+        showTagFiltering()
+        return true
+    }
+
+    private fun showTagFiltering() {
+        val dialogFragment = TagFilteringDialogFragment.newInstance(model.tags.value)
+        dialogFragment.tagsFiltered = { model.tagsFiltered(it) }
+        dialogFragment.show(requireFragmentManager(), "TagFilteringDialogFragment")
     }
 }

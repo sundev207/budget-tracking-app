@@ -1,6 +1,6 @@
 package com.sundev207.expenses.ui.settings
 
-import com.sundev207.expenses.model.Currency
+import com.sundev207.expenses.data.Currency
 
 class DefaultCurrencyItemModel(val currency: Currency) : SettingItemModel {
 

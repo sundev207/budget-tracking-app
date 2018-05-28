@@ -3,7 +3,7 @@ package com.sundev207.expenses.ui.home
 import android.content.Context
 import com.sundev207.expenses.infrastructure.extensions.get
 import com.sundev207.expenses.infrastructure.extensions.monthShortName
-import com.sundev207.expenses.model.Expense
+import com.sundev207.expenses.data.Expense
 import java.util.*
 
 class ExpenseItemModel(context: Context, val expense: Expense) : HomeItemModel {

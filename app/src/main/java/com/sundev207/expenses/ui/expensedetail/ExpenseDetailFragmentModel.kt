@@ -6,27 +6,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
-import com.sundev207.expenses.infrastructure.extensions.toString
+import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.database.DatabaseDataSource
+import com.sundev207.expenses.infrastructure.extensions.toReadableString
 import com.sundev207.expenses.infrastructure.utils.Event
-import com.sundev207.expenses.infrastructure.utils.runOnBackground
-import com.sundev207.expenses.model.ApplicationDatabase
-import com.sundev207.expenses.model.Expense
 
 class ExpenseDetailFragmentModel(
         application: Application,
-        private val expense: Expense
+        private val expense: Expense,
+        private val databaseDataSource: DatabaseDataSource
 ) : AndroidViewModel(application) {
 
     val amount = "${"%.2f".format(expense.amount)} ${expense.currency.symbol}"
     val currency = "(${expense.currency.title} • ${expense.currency.code})"
     val title = expense.title
-    val user = expense.userName
+    val tags = expense.tags
     val date: String
     val notes: String
 
     val finish = Event()
-
-    private val database = application.database
 
     init {
         date = createDate(expense)
@@ -34,17 +32,18 @@ class ExpenseDetailFragmentModel(
     }
 
     private fun createDate(expense: Expense): String {
-        return expense.date.toString("dd-MM-yyyy")
+        val context = getApplication<Application>()
+        return expense.date.toReadableString(context)
     }
 
     private fun createNotes(context: Context, expense: Expense): String {
         val notes = expense.notes
         return if (notes.isNotEmpty()) notes
-        else context.getString(R.string.ui_expense_detail_no_notes)
+        else context.getString(R.string.no_notes)
     }
 
     fun delete() {
-        runOnBackground { database.expenseDao().delete(expense) }
+        databaseDataSource.deleteExpense(expense)
         finish.next()
     }
 
@@ -55,7 +54,8 @@ class ExpenseDetailFragmentModel(
     ) : ViewModelProvider.NewInstanceFactory() {
 
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ExpenseDetailFragmentModel(application, expense) as T
+            val databaseDataSource = DatabaseDataSource(application.database)
+            return ExpenseDetailFragmentModel(application, expense, databaseDataSource) as T
         }
     }
 }
