@@ -1,17 +1,32 @@
 package com.sundev207.expenses.ui.home
 
-import android.content.Context
-import com.sundev207.expenses.infrastructure.extensions.get
-import com.sundev207.expenses.infrastructure.extensions.monthShortName
 import com.sundev207.expenses.data.Expense
-import java.util.*
 
-class ExpenseItemModel(context: Context, val expense: Expense) : HomeItemModel {
+class ExpenseItemModel(val expense: Expense) : HomeItemModel {
 
-    val month = expense.date.monthShortName(context)?.toUpperCase() ?: ""
-    val day = "${expense.date.get(Calendar.DAY_OF_MONTH)}"
-    val amount = "${"%.2f".format(expense.amount)} ${expense.currency.symbol}"
-    val title = expense.title
+    val month = createMonth()
+    val day = createDay()
+    val amount = createAmount()
+    val title = createTitle()
 
     var click: (() -> Unit)? = null
+
+    private fun createMonth(): String {
+        val pattern = "MMM"
+        val monthName = expense.date.toString(pattern)
+        return monthName.toUpperCase()
+    }
+
+    private fun createDay(): String {
+        val day = expense.date.day
+        return day.toString()
+    }
+
+    private fun createAmount(): String {
+        val amount = "%.2f".format(expense.amount)
+        val symbol = expense.currency.symbol
+        return "$amount $symbol"
+    }
+
+    private fun createTitle() = expense.title
 }

@@ -1,7 +1,6 @@
 package com.sundev207.expenses.ui.newexpense
 
 import android.os.Bundle
-import android.text.format.DateFormat
 import android.view.*
 import android.widget.EditText
 import android.widget.TextView
@@ -12,14 +11,16 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sundev207.expenses.R
 import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Tag
-import com.sundev207.expenses.infrastructure.extensions.*
+import com.sundev207.expenses.infrastructure.extensions.afterTextChanged
+import com.sundev207.expenses.infrastructure.extensions.application
+import com.sundev207.expenses.infrastructure.extensions.plusAssign
 import com.sundev207.expenses.ui.MainActivity
 import com.sundev207.expenses.ui.common.currencyselection.CurrencySelectionDialogFragment
 import com.sundev207.expenses.ui.common.dateselection.DateSelectionDialogFragment
 import com.sundev207.expenses.ui.common.timeselection.TimeSelectionDialogFragment
 import io.reactivex.disposables.CompositeDisposable
-import java.util.*
 
 class NewExpenseFragment : Fragment() {
 
@@ -104,14 +105,14 @@ class NewExpenseFragment : Fragment() {
         dialogFragment.show(requireFragmentManager(), "DateSelectionDialogFragment")
     }
 
-    private fun showTimeSelection(year: Int, month: Int, dayOfMonth: Int) {
+    private fun showTimeSelection(year: Int, month: Int, day: Int) {
         val dialogFragment = TimeSelectionDialogFragment()
-        dialogFragment.timeSelected = { h, m -> selectDate(year, month, dayOfMonth, h, m)}
+        dialogFragment.timeSelected = { h, m -> selectDate(year, month, day, h, m) }
         dialogFragment.show(requireFragmentManager(), "TimeSelectionDialogFragment")
     }
 
-    private fun selectDate(year: Int, month: Int, dayOfMonth: Int, hourOfDay: Int, minute: Int) {
-        model.selectDate(year, month, dayOfMonth, hourOfDay, minute)
+    private fun selectDate(year: Int, month: Int, day: Int, hour: Int, minute: Int) {
+        model.selectDate(year, month, day, hour, minute)
     }
 
     private fun setupViewModel() {
@@ -137,7 +138,7 @@ class NewExpenseFragment : Fragment() {
     }
 
     private fun updateDateText(date: Date) {
-        dateText.text = date.toReadableString(requireContext())
+        dateText.text = date.toReadableString()
     }
 
     private fun updateTagLayout(tags: List<Tag>) {

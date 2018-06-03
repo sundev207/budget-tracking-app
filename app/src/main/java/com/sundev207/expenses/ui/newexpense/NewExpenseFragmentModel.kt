@@ -5,15 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.data.database.DatabaseDataSource
-import com.sundev207.expenses.infrastructure.extensions.truncatedTime
 import com.sundev207.expenses.infrastructure.utils.Event
 import com.sundev207.expenses.infrastructure.utils.Variable
 import com.sundev207.expenses.source.PreferenceDataSource
 import io.reactivex.disposables.CompositeDisposable
-import java.util.*
 
 class NewExpenseFragmentModel(
         application: Application,
@@ -42,7 +41,7 @@ class NewExpenseFragmentModel(
         return preferenceDataSource.getDefaultCurrency(context)
     }
 
-    private fun getDefaultDate() = Calendar.getInstance().truncatedTime
+    private fun getDefaultDate() = Date.now()
 
     private fun getDefaultTags() = emptyList<Tag>()
 
@@ -61,14 +60,8 @@ class NewExpenseFragmentModel(
         selectedCurrency.value = currency
     }
 
-    fun selectDate(year: Int, month: Int, dayOfMonth: Int, hourOfDay: Int, minute: Int) {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.YEAR, year)
-        calendar.set(Calendar.MONTH, month)
-        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-        calendar.set(Calendar.MINUTE, minute)
-        selectedDate.value = calendar.time
+    fun selectDate(year: Int, month: Int, day: Int, hour: Int, minute: Int) {
+        selectedDate.value = Date.from(year, month, day, hour, minute, 0)
     }
 
     fun selectTags(tags: List<Tag>) {

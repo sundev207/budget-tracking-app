@@ -9,10 +9,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sundev207.expenses.R
+import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.infrastructure.extensions.application
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
-import com.sundev207.expenses.data.Expense
-import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.ui.MainActivity
 import io.reactivex.disposables.CompositeDisposable
 
