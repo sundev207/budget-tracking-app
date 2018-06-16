@@ -18,8 +18,8 @@ import com.sundev207.expenses.infrastructure.extensions.afterTextChanged
 import com.sundev207.expenses.infrastructure.extensions.application
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
 import com.sundev207.expenses.userinterface.common.currencyselection.CurrencySelectionDialogFragment
-import com.sundev207.expenses.userinterface.common.dateselection.DateSelectionDialogFragment
-import com.sundev207.expenses.userinterface.common.timeselection.TimeSelectionDialogFragment
+import com.sundev207.expenses.userinterface.newexpense.dateselection.DateSelectionDialogFragment
+import com.sundev207.expenses.userinterface.newexpense.timeselection.TimeSelectionDialogFragment
 import io.reactivex.disposables.CompositeDisposable
 
 class NewExpenseFragment : Fragment() {

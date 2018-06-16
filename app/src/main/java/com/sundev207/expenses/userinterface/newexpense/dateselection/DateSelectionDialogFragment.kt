@@ -1,4 +1,4 @@
-package com.sundev207.expenses.userinterface.common.dateselection
+package com.sundev207.expenses.userinterface.newexpense.dateselection
 
 import android.app.DatePickerDialog
 import android.app.Dialog
