@@ -8,7 +8,7 @@ import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.database.DatabaseDataSource
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import jxl.Workbook
@@ -33,7 +33,7 @@ class ExportExpensesTask(
                 .observeOn(Schedulers.io())
                 .map { sort(it) }
                 .map { export(it) }
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(mainThread())
                 .subscribe({ callback?.invoke(it) }, { callback?.invoke(false) })
     }
 

@@ -1,4 +1,4 @@
-package com.sundev207.expenses.data.dao
+package com.sundev207.expenses.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

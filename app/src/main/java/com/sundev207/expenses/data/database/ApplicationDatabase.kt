@@ -6,9 +6,9 @@ import androidx.room.TypeConverters
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.ExpenseTagJoin
 import com.sundev207.expenses.data.Tag
-import com.sundev207.expenses.data.dao.ExpenseDao
-import com.sundev207.expenses.data.dao.ExpenseTagJoinDao
-import com.sundev207.expenses.data.dao.TagDao
+import com.sundev207.expenses.data.database.dao.ExpenseDao
+import com.sundev207.expenses.data.database.dao.ExpenseTagJoinDao
+import com.sundev207.expenses.data.database.dao.TagDao
 import com.sundev207.expenses.infrastructure.utils.CurrencyConverter
 import com.sundev207.expenses.infrastructure.utils.DateConverter
 
