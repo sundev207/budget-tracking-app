@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.automaton.ApplicationAutomaton
-import com.sundev207.expenses.automaton.newexpense.NewExpenseInputs.SetSelectedTagsInput
-import com.sundev207.expenses.automaton.newexpense.tagselection.TagSelectionInputs.*
+import com.sundev207.expenses.automaton.newexpense.NewExpenseInput.SetSelectedTagsInput
+import com.sundev207.expenses.automaton.newexpense.tagselection.TagSelectionInput.*
 import com.sundev207.expenses.automaton.newexpense.tagselection.TagSelectionState
 import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.infrastructure.utils.Event

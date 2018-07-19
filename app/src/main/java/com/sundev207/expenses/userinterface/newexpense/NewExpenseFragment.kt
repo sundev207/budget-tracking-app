@@ -16,6 +16,7 @@ import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.infrastructure.extensions.afterTextChanged
 import com.sundev207.expenses.infrastructure.extensions.application
+import com.sundev207.expenses.infrastructure.extensions.hideKeyboard
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
 import com.sundev207.expenses.userinterface.common.currencyselection.CurrencySelectionDialogFragment
 import com.sundev207.expenses.userinterface.newexpense.dateselection.DateSelectionDialogFragment
@@ -155,7 +156,7 @@ class NewExpenseFragment : Fragment() {
 
     private fun createChip(text: String): Chip {
         val chip = Chip(context)
-        chip.chipText = text
+        chip.text = text
         chip.isClickable = false
         return chip
     }
@@ -169,6 +170,7 @@ class NewExpenseFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         unbindModel()
+        hideKeyboard()
     }
 
     private fun unbindModel() {

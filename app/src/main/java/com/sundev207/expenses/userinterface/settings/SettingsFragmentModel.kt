@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
 import com.sundev207.expenses.automaton.ApplicationAutomaton
-import com.sundev207.expenses.automaton.settings.SettingsInputs.*
+import com.sundev207.expenses.automaton.settings.SettingsInput.*
 import com.sundev207.expenses.automaton.settings.SettingsState.ExpenseExportState
 import com.sundev207.expenses.automaton.settings.SettingsState
 import com.sundev207.expenses.data.Currency

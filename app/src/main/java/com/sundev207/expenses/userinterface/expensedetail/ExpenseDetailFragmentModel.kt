@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
 import com.sundev207.expenses.automaton.ApplicationAutomaton
-import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailInputs.*
+import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailInput.*
 import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailState
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.Tag

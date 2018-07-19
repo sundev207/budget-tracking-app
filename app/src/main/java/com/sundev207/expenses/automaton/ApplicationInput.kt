@@ -1,4 +1,4 @@
 package com.sundev207.expenses.automaton
 
-interface ApplicationInput
+abstract class ApplicationInput
 

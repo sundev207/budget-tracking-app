@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.automaton.ApplicationAutomaton
-import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailInputs.SetExpenseInput
-import com.sundev207.expenses.automaton.home.HomeInputs.*
+import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailInput.SetExpenseInput
+import com.sundev207.expenses.automaton.home.HomeInput.*
 import com.sundev207.expenses.automaton.home.HomeState
 import com.sundev207.expenses.automaton.home.HomeState.ExpenseState
 import com.sundev207.expenses.automaton.home.HomeState.TagState
