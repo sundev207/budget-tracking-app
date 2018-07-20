@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.userinterface.common.BaseActivity
 
 class ExpenseDetailActivity: BaseActivity() {
