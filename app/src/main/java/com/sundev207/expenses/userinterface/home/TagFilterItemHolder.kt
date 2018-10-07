@@ -2,6 +2,7 @@ package com.sundev207.expenses.userinterface.home
 
 import android.view.View
 import com.google.android.material.chip.Chip
+import com.sundev207.expenses.R
 import kotlinx.android.synthetic.main.item_tag_filter.view.*
 
 class TagFilterItemHolder(itemView: View) : HomeItemHolder(itemView) {
