@@ -1,4 +1,4 @@
-package com.sundev207.expenses.userinterface.newexpense.tagselection
+package com.sundev207.expenses.userinterface.addeditexpense.tagselection
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -16,7 +16,8 @@ import com.sundev207.expenses.infrastructure.extensions.afterTextChanged
 class NewTagDialogFragment : DialogFragment() {
 
     companion object {
-        fun newInstance() = NewTagDialogFragment()
+        fun newInstance() =
+            NewTagDialogFragment()
     }
 
     var tagCreated: ((Tag) -> Unit)? = null

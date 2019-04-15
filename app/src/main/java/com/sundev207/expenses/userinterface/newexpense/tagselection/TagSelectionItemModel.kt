@@ -1,3 +1,0 @@
-package com.sundev207.expenses.userinterface.newexpense.tagselection
-
-interface TagSelectionItemModel

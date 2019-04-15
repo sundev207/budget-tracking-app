@@ -1,4 +1,4 @@
-package com.sundev207.expenses.userinterface.newexpense.tagselection
+package com.sundev207.expenses.userinterface.addeditexpense.tagselection
 
 import android.view.View
 import android.widget.PopupMenu

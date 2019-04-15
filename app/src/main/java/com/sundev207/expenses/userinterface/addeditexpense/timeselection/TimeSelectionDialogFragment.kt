@@ -1,4 +1,4 @@
-package com.sundev207.expenses.userinterface.newexpense.timeselection
+package com.sundev207.expenses.userinterface.addeditexpense.timeselection
 
 import android.app.Dialog
 import android.app.TimePickerDialog

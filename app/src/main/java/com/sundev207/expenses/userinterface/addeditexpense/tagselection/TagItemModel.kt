@@ -1,8 +1,9 @@
-package com.sundev207.expenses.userinterface.newexpense.tagselection
+package com.sundev207.expenses.userinterface.addeditexpense.tagselection
 
 import com.sundev207.expenses.data.Tag
 
-class TagItemModel(val tag: Tag): TagSelectionItemModel {
+class TagItemModel(val tag: Tag):
+    TagSelectionItemModel {
 
     var isChecked = false
     val name = tag.name

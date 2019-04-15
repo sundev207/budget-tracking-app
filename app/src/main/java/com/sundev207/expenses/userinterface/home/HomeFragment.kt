@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sundev207.expenses.R
 import com.sundev207.expenses.infrastructure.extensions.application
 import com.sundev207.expenses.infrastructure.extensions.plusAssign
+import com.sundev207.expenses.userinterface.addeditexpense.AddEditExpenseActivity
 import com.sundev207.expenses.userinterface.expensedetail.ExpenseDetailActivity
-import com.sundev207.expenses.userinterface.newexpense.NewExpenseActivity
 import com.sundev207.expenses.userinterface.settings.SettingsActivity
 import io.reactivex.disposables.CompositeDisposable
 
@@ -71,7 +71,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupNewExpenseLayout() {
-        newExpenseButton.setOnClickListener { NewExpenseActivity.start(requireContext()) }
+        newExpenseButton.setOnClickListener { AddEditExpenseActivity.start(requireContext()) }
     }
 
     private fun setupViewModel() {
