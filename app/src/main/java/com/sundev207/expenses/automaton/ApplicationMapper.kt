@@ -4,8 +4,6 @@ import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailInput
 import com.sundev207.expenses.automaton.expensedetail.ExpenseDetailMapper
 import com.sundev207.expenses.automaton.home.HomeInput
 import com.sundev207.expenses.automaton.home.HomeMapper
-import com.sundev207.expenses.automaton.newexpense.NewExpenseInput
-import com.sundev207.expenses.automaton.newexpense.NewExpenseMapper
 import com.sundev207.expenses.automaton.settings.SettingsInput
 import com.sundev207.expenses.automaton.settings.SettingsMapper
 import com.sundev207.expenses.data.database.DatabaseDataSource
@@ -25,9 +23,6 @@ class ApplicationMapper(
             databaseDataSource)
     private val homeMapper = HomeMapper(
             databaseDataSource)
-    private val newExpenseMapper = NewExpenseMapper(
-            databaseDataSource,
-            preferenceDataSource)
     private val settingsMapper = SettingsMapper(
             databaseDataSource,
             preferenceDataSource)
@@ -36,7 +31,6 @@ class ApplicationMapper(
         return when (input) {
             is ExpenseDetailInput -> map(state, input)
             is HomeInput -> map(state, input)
-            is NewExpenseInput -> map(state, input)
             is SettingsInput -> map(state, input)
             else -> ApplicationMapperResult(state, null)
         }
@@ -53,13 +47,6 @@ class ApplicationMapper(
         val homeState = state.homeState
         val (newHomeState, output) = homeMapper.map(homeState, input)
         val newState = state.copy(homeState = newHomeState)
-        return ApplicationMapperResult(newState, output)
-    }
-
-    private fun map(state: ApplicationState, input: NewExpenseInput): ApplicationMapperResult {
-        val newExpenseState = state.newExpenseState
-        val (newNewExpenseState, output) = newExpenseMapper.map(newExpenseState, input)
-        val newState = state.copy(newExpenseState = newNewExpenseState)
         return ApplicationMapperResult(newState, output)
     }
 
