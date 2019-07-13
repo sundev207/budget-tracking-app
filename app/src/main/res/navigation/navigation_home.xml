@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.sundev207.expenses.userinterface.home.HomeFragment"
+        android:name="com.sundev207.expenses.home.presentation.HomeFragment"
         android:label="HomeFragment" />
 
 </navigation>

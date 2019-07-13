@@ -1,3 +1,0 @@
-package com.sundev207.expenses.userinterface.settings
-
-interface SettingItemModel

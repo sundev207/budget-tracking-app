@@ -1,0 +1,3 @@
+package com.sundev207.expenses.settings.presentation
+
+interface SettingItemModel

@@ -9,8 +9,8 @@ import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.data.database.dao.ExpenseDao
 import com.sundev207.expenses.data.database.dao.ExpenseTagJoinDao
 import com.sundev207.expenses.data.database.dao.TagDao
-import com.sundev207.expenses.infrastructure.utils.CurrencyConverter
-import com.sundev207.expenses.infrastructure.utils.DateConverter
+import com.sundev207.expenses.data.database.converter.CurrencyConverter
+import com.sundev207.expenses.data.database.converter.DateConverter
 
 @Database(
         entities = [

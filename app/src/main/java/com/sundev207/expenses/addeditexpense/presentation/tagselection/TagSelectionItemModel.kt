@@ -1,0 +1,3 @@
+package com.sundev207.expenses.addeditexpense.presentation.tagselection
+
+interface TagSelectionItemModel
