@@ -12,13 +12,10 @@ import com.sundev207.expenses.R
 import com.sundev207.expenses.data.Currency
 import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Tag
-import com.sundev207.expenses.util.extensions.afterTextChanged
-import com.sundev207.expenses.util.extensions.application
-import com.sundev207.expenses.util.extensions.hideKeyboard
-import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.addeditexpense.presentation.dateselection.DateSelectionDialogFragment
 import com.sundev207.expenses.addeditexpense.presentation.timeselection.TimeSelectionDialogFragment
 import com.sundev207.expenses.common.presentation.currencyselection.CurrencySelectionDialogFragment
+import com.sundev207.expenses.util.extensions.*
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_add_edit_expense.*
 
@@ -56,6 +53,7 @@ class AddEditExpenseFragment : Fragment() {
     }
 
     private fun watchEditTexts() {
+        showKeyboard(edit_text_amount, 200)
         edit_text_amount.afterTextChanged {
             model.updateAmount(it.toString().toFloatOrNull() ?: 0f)
         }
