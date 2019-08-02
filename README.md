@@ -6,6 +6,10 @@
 
 ![Screens](Resources/Screens.png)
 
+# Download
+
+You can download newest APK from [releases page](https://github.com/sundev207/budget-tracking-app/releases).
+
 # Copyright
 
     Copyright 2019 Justin Padilla. All rights reserved.
