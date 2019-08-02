@@ -10,6 +10,10 @@
 
 You can download newest APK from [releases page](https://github.com/sundev207/budget-tracking-app/releases).
 
+
+
+Expenses is developed and maintained by [Justin Padilla](https://github.com/sundev207). 
+
 # Copyright
 
     Copyright 2019 Justin Padilla. All rights reserved.
