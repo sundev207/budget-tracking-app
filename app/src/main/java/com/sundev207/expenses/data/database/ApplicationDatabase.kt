@@ -6,11 +6,11 @@ import androidx.room.TypeConverters
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.ExpenseTagJoin
 import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.database.converter.CurrencyConverter
+import com.sundev207.expenses.data.database.converter.LocalDateConverter
 import com.sundev207.expenses.data.database.dao.ExpenseDao
 import com.sundev207.expenses.data.database.dao.ExpenseTagJoinDao
 import com.sundev207.expenses.data.database.dao.TagDao
-import com.sundev207.expenses.data.database.converter.CurrencyConverter
-import com.sundev207.expenses.data.database.converter.DateConverter
 
 @Database(
     entities = [
@@ -24,7 +24,7 @@ import com.sundev207.expenses.data.database.converter.DateConverter
 @TypeConverters(
     value = [
         CurrencyConverter::class,
-        DateConverter::class
+        LocalDateConverter::class
     ]
 )
 abstract class ApplicationDatabase : RoomDatabase() {

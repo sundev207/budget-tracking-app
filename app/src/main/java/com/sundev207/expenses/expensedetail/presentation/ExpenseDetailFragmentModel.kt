@@ -10,7 +10,9 @@ import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.data.database.DatabaseDataSource
 import com.sundev207.expenses.expensedetail.domain.DeleteExpenseUseCase
 import com.sundev207.expenses.expensedetail.domain.ObserveExpenseUseCase
+import com.sundev207.expenses.util.READABLE_DATE_FORMAT
 import com.sundev207.expenses.util.extensions.plusAssign
+import com.sundev207.expenses.util.extensions.toString
 import com.sundev207.expenses.util.reactive.DataEvent
 import com.sundev207.expenses.util.reactive.Event
 import com.sundev207.expenses.util.reactive.Variable
@@ -55,7 +57,7 @@ class ExpenseDetailFragmentModel(
         currency.value = "(${expense.currency.title} • ${expense.currency.code})"
         title.value = expense.title
         tags.value = expense.tags
-        date.value = expense.date.toReadableString()
+        date.value = expense.date.toString(READABLE_DATE_FORMAT)
         notes.value = makeNotes(expense)
     }
 

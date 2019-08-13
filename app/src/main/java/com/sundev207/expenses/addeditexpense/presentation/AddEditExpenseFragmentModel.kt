@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.data.Currency
-import com.sundev207.expenses.data.Date
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.Tag
 import com.sundev207.expenses.data.database.DatabaseDataSource
@@ -17,6 +16,7 @@ import com.sundev207.expenses.util.reactive.Variable
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers.io
+import org.threeten.bp.LocalDate
 
 class AddEditExpenseFragmentModel(
     application: Application,
@@ -30,7 +30,7 @@ class AddEditExpenseFragmentModel(
     var notes: String = ""
 
     val selectedCurrency = Variable(Currency.USD)
-    val selectedDate = Variable(Date.now())
+    val selectedDate = Variable(LocalDate.now())
     val selectedTags = Variable(emptyList<Tag>())
 
     val finish = Event()
@@ -80,9 +80,8 @@ class AddEditExpenseFragmentModel(
         selectedTags.value = tags
     }
 
-    fun selectDate(year: Int, month: Int, day: Int, hour: Int, minute: Int) {
-        val date = Date.from(year, month, day, hour, minute, 0)
-        selectedDate.value = date
+    fun selectDate(year: Int, month: Int, day: Int) {
+        selectedDate.value = LocalDate.of(year, month, day)
     }
 
     // Updating
