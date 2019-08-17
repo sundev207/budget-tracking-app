@@ -3,6 +3,7 @@ package com.sundev207.expenses.data.database
 import com.sundev207.expenses.data.Expense
 import com.sundev207.expenses.data.ExpenseTagJoin
 import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.util.getCurrentTimestamp
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
