@@ -300,6 +300,6 @@ class SettingsFragmentModel(
             Uri.parse("mailto:the.sundev207@gmail.com")
 
         private val PRIVACY_POLICY_URI =
-            Uri.parse("https://github.com/sundev207/budget-tracking-app/blob/master/privacy_policy.md")
+            Uri.parse("https://github.com/sundev207/budget-tracking-app/blob/master/resources/privacy_policy.md")
     }
 }
