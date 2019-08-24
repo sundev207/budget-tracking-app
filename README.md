@@ -4,7 +4,7 @@
 
 </a>
 
-![Screens](Resources/Screens.png)
+![Screens](resources/screens.png)
 
 # Download
 
