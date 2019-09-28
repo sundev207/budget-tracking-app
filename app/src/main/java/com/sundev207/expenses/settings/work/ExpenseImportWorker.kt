@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.work.*
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Currency
-import com.sundev207.expenses.data.Expense
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.Currency
+import com.sundev207.expenses.data.model.old.Expense
+import com.sundev207.expenses.data.model.old.Tag
 import com.sundev207.expenses.data.database.DatabaseDataSource
 import com.sundev207.expenses.util.extensions.toLocalDate
 import jxl.DateCell
@@ -102,7 +102,19 @@ class ExpenseImportWorker(context: Context, params: WorkerParameters) :
             val notes = getNotes(sheet, columnOfNotes, row)
             val tags = getTags(sheet, columnOfTags, row, allTags)
 
-            expensesForInsertion.add(Expense(0, amount, currency, title, date, notes, 0, 0, tags))
+            expensesForInsertion.add(
+                Expense(
+                    0,
+                    amount,
+                    currency,
+                    title,
+                    date,
+                    notes,
+                    0,
+                    0,
+                    tags
+                )
+            )
         }
 
         return expensesForInsertion.map { expenseForInsertion ->

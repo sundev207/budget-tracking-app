@@ -1,6 +1,6 @@
 package com.sundev207.expenses.home.domain
 
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.home.presentation.DateRange
 import com.sundev207.expenses.home.presentation.TagFilter
 

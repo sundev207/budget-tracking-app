@@ -1,7 +1,7 @@
 package com.sundev207.expenses.data.database.dao
 
 import androidx.room.*
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.old.Expense
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

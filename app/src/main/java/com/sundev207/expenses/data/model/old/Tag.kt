@@ -1,4 +1,4 @@
-package com.sundev207.expenses.data
+package com.sundev207.expenses.data.model.old
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

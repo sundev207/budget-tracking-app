@@ -1,7 +1,7 @@
 package com.sundev207.expenses.home.presentation
 
 import android.os.Parcelable
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.Tag
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

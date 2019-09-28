@@ -3,7 +3,6 @@ package com.sundev207.expenses.expensedetail.presentation
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -12,7 +11,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.util.extensions.application
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.addeditexpense.presentation.AddEditExpenseActivity

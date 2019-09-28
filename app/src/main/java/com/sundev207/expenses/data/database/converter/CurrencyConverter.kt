@@ -1,7 +1,7 @@
 package com.sundev207.expenses.data.database.converter
 
 import androidx.room.TypeConverter
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 
 class CurrencyConverter {
 

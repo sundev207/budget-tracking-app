@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.util.extensions.afterTextChanged
 import com.sundev207.expenses.util.extensions.hideKeyboard
 import com.sundev207.expenses.util.extensions.showKeyboard

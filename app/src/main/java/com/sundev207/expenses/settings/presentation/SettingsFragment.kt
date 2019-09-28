@@ -20,7 +20,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.sundev207.expenses.R
 import com.sundev207.expenses.currencyselection.CurrencySelectionActivity
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.util.extensions.application
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.util.extensions.startActivitySafely

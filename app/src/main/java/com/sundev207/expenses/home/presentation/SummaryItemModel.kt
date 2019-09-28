@@ -2,13 +2,13 @@ package com.sundev207.expenses.home.presentation
 
 import android.content.Context
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.home.presentation.DateRange.*
 
 class SummaryItemModel(
-        context: Context,
-        val currencySummaries: List<Pair<Currency, Float>>,
-        val dateRange: DateRange
+    context: Context,
+    val currencySummaries: List<Pair<Currency, Float>>,
+    val dateRange: DateRange
 ) : HomeItemModel {
 
     var itemModels: List<CurrencySummaryItemModel>

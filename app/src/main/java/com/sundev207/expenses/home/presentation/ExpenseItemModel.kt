@@ -1,6 +1,6 @@
 package com.sundev207.expenses.home.presentation
 
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.util.extensions.toString
 
 class ExpenseItemModel(val expense: Expense) : HomeItemModel {

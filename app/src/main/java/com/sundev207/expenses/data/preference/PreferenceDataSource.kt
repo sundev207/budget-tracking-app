@@ -3,7 +3,7 @@ package com.sundev207.expenses.data.preference
 import android.content.Context
 import androidx.preference.PreferenceManager
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.home.presentation.DateRange
 
 class PreferenceDataSource {

@@ -1,11 +1,9 @@
 package com.sundev207.expenses.home.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.ProgressBar
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -15,13 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sundev207.expenses.R
 import com.sundev207.expenses.addeditexpense.presentation.AddEditExpenseActivity
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.expensedetail.presentation.ExpenseDetailActivity
 import com.sundev207.expenses.settings.presentation.SettingsActivity
 import com.sundev207.expenses.util.extensions.application
 import com.sundev207.expenses.util.extensions.plusAssign
 import io.reactivex.disposables.CompositeDisposable
-import org.threeten.bp.ZonedDateTime
 
 class HomeFragment : Fragment() {
 

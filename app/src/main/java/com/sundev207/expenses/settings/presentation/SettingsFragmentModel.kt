@@ -9,7 +9,7 @@ import androidx.work.WorkInfo
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.BuildConfig
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Currency
+import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.settings.work.ExpenseDeletionWorker
 import com.sundev207.expenses.settings.work.ExpenseExportWorker

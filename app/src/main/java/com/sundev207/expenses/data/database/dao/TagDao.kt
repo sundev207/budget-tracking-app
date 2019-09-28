@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.old.Tag
 import io.reactivex.Observable
 
 @Dao

@@ -1,15 +1,12 @@
 package com.sundev207.expenses.data.database
 
-import com.sundev207.expenses.data.Expense
-import com.sundev207.expenses.data.ExpenseTagJoin
-import com.sundev207.expenses.data.Tag
-import com.sundev207.expenses.util.getCurrentTimestamp
+import com.sundev207.expenses.data.model.old.Expense
+import com.sundev207.expenses.data.model.old.ExpenseTagJoin
+import com.sundev207.expenses.data.model.old.Tag
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.schedulers.Schedulers.io
 
 class DatabaseDataSource(private val database: ApplicationDatabase) {
 
@@ -65,7 +62,8 @@ class DatabaseDataSource(private val database: ApplicationDatabase) {
             database.expenseDao().update(expense)
 
             for (tag in expense.tags) {
-                val join = ExpenseTagJoin(expense.id, tag.id)
+                val join =
+                    ExpenseTagJoin(expense.id, tag.id)
                 database.expenseTagJoinDao().insert(join)
             }
         }

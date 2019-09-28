@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.common.presentation.BaseActivity
 import kotlinx.android.synthetic.main.activity_add_edit_expense.*
 

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.Tag
 
 class TagFilteringDialogFragment : DialogFragment(), DialogInterface.OnMultiChoiceClickListener {
 

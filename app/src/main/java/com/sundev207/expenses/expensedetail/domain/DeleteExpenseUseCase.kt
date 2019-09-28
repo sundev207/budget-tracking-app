@@ -1,12 +1,12 @@
 package com.sundev207.expenses.expensedetail.domain
 
-import com.sundev207.expenses.data.Expense
-import com.sundev207.expenses.data.database.DatabaseDataSource
+import com.sundev207.expenses.data.firebase.FirestoreDataSource
+import com.sundev207.expenses.data.model.Expense
 import io.reactivex.Completable
 
-class DeleteExpenseUseCase(private val databaseDataSource: DatabaseDataSource) {
-    
+class DeleteExpenseUseCase(private val firestoreDataSource: FirestoreDataSource) {
+
     operator fun invoke(expense: Expense): Completable {
-        return databaseDataSource.deleteExpense(expense)
+        return firestoreDataSource.deleteExpense(expense)
     }
 }

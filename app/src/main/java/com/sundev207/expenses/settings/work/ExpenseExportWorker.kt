@@ -8,7 +8,7 @@ import androidx.work.RxWorker
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.sundev207.expenses.R
-import com.sundev207.expenses.data.Expense
+import com.sundev207.expenses.data.model.old.Expense
 import com.sundev207.expenses.data.database.DatabaseDataSource
 import com.sundev207.expenses.util.extensions.application
 import com.sundev207.expenses.util.extensions.toDate

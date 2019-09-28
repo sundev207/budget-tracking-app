@@ -13,8 +13,8 @@ import com.google.android.material.chip.Chip
 import com.sundev207.expenses.R
 import com.sundev207.expenses.addeditexpense.presentation.dateselection.DateSelectionDialogFragment
 import com.sundev207.expenses.currencyselection.CurrencySelectionActivity
-import com.sundev207.expenses.data.Currency
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.Currency
+import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.util.READABLE_DATE_FORMAT
 import com.sundev207.expenses.util.extensions.*
 import io.reactivex.disposables.CompositeDisposable

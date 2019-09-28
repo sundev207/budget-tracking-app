@@ -1,4 +1,4 @@
-package com.sundev207.expenses.data
+package com.sundev207.expenses.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

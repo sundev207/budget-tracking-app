@@ -1,10 +1,11 @@
-package com.sundev207.expenses.data
+package com.sundev207.expenses.data.model.old
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.sundev207.expenses.data.model.Currency
 import kotlinx.android.parcel.Parcelize
 import org.threeten.bp.LocalDate
 

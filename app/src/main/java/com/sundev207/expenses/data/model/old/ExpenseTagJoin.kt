@@ -1,4 +1,4 @@
-package com.sundev207.expenses.data
+package com.sundev207.expenses.data.model.old
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

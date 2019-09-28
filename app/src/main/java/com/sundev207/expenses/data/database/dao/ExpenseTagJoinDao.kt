@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.RoomWarnings
-import com.sundev207.expenses.data.ExpenseTagJoin
-import com.sundev207.expenses.data.Tag
+import com.sundev207.expenses.data.model.old.ExpenseTagJoin
+import com.sundev207.expenses.data.model.old.Tag
 import io.reactivex.Observable
 
 @Dao
