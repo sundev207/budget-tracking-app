@@ -21,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.sundev207.expenses.R
 import com.sundev207.expenses.currencyselection.CurrencySelectionActivity
 import com.sundev207.expenses.data.model.Currency
+import com.sundev207.expenses.onboarding.OnboardingActivity
 import com.sundev207.expenses.util.extensions.application
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.util.extensions.startActivitySafely
@@ -111,6 +112,9 @@ class SettingsFragment : Fragment() {
         compositeDisposable += model.showActivity
             .toObservable()
             .subscribe { showActivity(it) }
+        compositeDisposable += model.navigateToOnboarding
+            .toObservable()
+            .subscribe { navigateToOnboarding() }
 
         compositeDisposable += model.observeWorkInfo
             .toObservable()
@@ -173,6 +177,10 @@ class SettingsFragment : Fragment() {
     private fun showActivity(uri: Uri) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         requireActivity().startActivitySafely(intent)
+    }
+
+    private fun navigateToOnboarding() {
+        OnboardingActivity.start(requireContext())
     }
 
     private fun observeWorkInfo(id: UUID) {
