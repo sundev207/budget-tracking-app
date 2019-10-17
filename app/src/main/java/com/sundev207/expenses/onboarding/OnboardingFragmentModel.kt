@@ -7,10 +7,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.authentication.AuthenticationManager
+import com.sundev207.expenses.data.database.DatabaseDataSource
+import com.sundev207.expenses.data.model.Currency
+import com.sundev207.expenses.data.model.old.Expense
+import com.sundev207.expenses.data.model.old.Tag
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.util.reactive.DataEvent
 import com.sundev207.expenses.util.reactive.Event
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers.io
+import org.threeten.bp.LocalDate
 
 class OnboardingFragmentModel(
     application: Application,
@@ -30,6 +36,7 @@ class OnboardingFragmentModel(
         disposables += authenticationManager.handleGoogleSignInResult(result)
             .subscribe({
                 Log.d(TAG, "Succeeded to sign in with Google.")
+                DataMigrationWorker.enqueue(getApplication())
                 navigateToHome.next()
             }, { error ->
                 Log.w(TAG, "Failed to sign in with Google, cause: ($error).")
