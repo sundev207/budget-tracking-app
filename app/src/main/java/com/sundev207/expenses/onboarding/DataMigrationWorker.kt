@@ -6,6 +6,7 @@ import androidx.work.*
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.data.database.DatabaseDataSource
 import com.sundev207.expenses.data.firebase.FirestoreDataSource
+import com.sundev207.expenses.util.extensions.toExactDouble
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
@@ -80,7 +81,7 @@ class DataMigrationWorker(context: Context, params: WorkerParameters) :
 
             NewExpense(
                 "",
-                oldExpense.amount,
+                oldExpense.amount.toExactDouble(),
                 oldExpense.currency,
                 oldExpense.title,
                 newExpenseTags,
