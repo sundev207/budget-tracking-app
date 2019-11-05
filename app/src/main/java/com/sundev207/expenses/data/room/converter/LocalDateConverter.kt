@@ -1,4 +1,4 @@
-package com.sundev207.expenses.data.database.converter
+package com.sundev207.expenses.data.room.converter
 
 import androidx.room.TypeConverter
 import org.threeten.bp.Instant

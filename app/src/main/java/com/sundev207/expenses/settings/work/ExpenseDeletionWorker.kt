@@ -2,23 +2,23 @@ package com.sundev207.expenses.settings.work
 
 import android.content.Context
 import android.util.Log
-import androidx.work.*
+import androidx.work.CoroutineWorker
 import androidx.work.ListenableWorker.Result.success
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import androidx.work.WorkerParameters
 import com.sundev207.expenses.Application
-import com.sundev207.expenses.data.database.DatabaseDataSource
-import com.sundev207.expenses.data.firebase.FirestoreDataSource
 import com.sundev207.expenses.data.model.Expense
-import com.sundev207.expenses.util.extensions.application
-import io.reactivex.Completable
-import io.reactivex.Single
+import com.sundev207.expenses.data.store.DataStore
+import com.sundev207.expenses.data.store.DataStoreFactory
 import kotlinx.coroutines.coroutineScope
 import java.util.*
 
 class ExpenseDeletionWorker(context: Context, workerParams: WorkerParameters) :
     CoroutineWorker(context, workerParams) {
 
-    private val firestoreDataSource: FirestoreDataSource by lazy {
-        FirestoreDataSource.getInstance(applicationContext as Application)
+    private val dataStore: DataStore by lazy {
+        DataStoreFactory.get(applicationContext as Application)
     }
 
     override suspend fun doWork() = coroutineScope {
@@ -30,11 +30,11 @@ class ExpenseDeletionWorker(context: Context, workerParams: WorkerParameters) :
     }
 
     private fun getExpenses(): List<Expense> {
-        return firestoreDataSource.getExpenses().blockingGet()
+        return dataStore.getExpenses().blockingGet()
     }
 
     private fun deleteExpenses(expenses: List<Expense>) {
-        expenses.forEach { firestoreDataSource.deleteExpense(it).blockingGet() }
+        expenses.forEach { dataStore.deleteExpense(it).blockingGet() }
     }
 
     companion object {

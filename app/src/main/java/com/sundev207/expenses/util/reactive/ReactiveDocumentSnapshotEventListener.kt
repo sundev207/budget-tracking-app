@@ -7,7 +7,7 @@ import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.disposables.Disposables
 
-class ReactiveDocumentSnapshotListener(
+class ReactiveDocumentSnapshotEventListener(
     private val documentReference: DocumentReference
 ) : ObservableOnSubscribe<DocumentSnapshot> {
 

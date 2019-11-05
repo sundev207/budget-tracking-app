@@ -7,7 +7,7 @@ import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.disposables.Disposables
 
-class ReactiveQuerySnapshotListener(
+class ReactiveQuerySnapshotEventListener(
     private val collectionReference: CollectionReference
 ) : ObservableOnSubscribe<QuerySnapshot> {
 
