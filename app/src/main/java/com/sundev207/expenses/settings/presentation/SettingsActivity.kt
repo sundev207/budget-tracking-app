@@ -3,10 +3,11 @@ package com.sundev207.expenses.settings.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import com.sundev207.expenses.R
 import com.sundev207.expenses.common.presentation.BaseActivity
 
-class SettingsActivity: BaseActivity() {
+class SettingsActivity : BaseActivity() {
 
     companion object {
         fun start(context: Context) {
