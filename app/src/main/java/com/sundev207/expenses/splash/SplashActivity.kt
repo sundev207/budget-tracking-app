@@ -2,14 +2,15 @@ package com.sundev207.expenses.splash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sundev207.expenses.Application
+import androidx.appcompat.app.AppCompatDelegate
 import com.sundev207.expenses.R
-import com.sundev207.expenses.authentication.AuthenticationManager
 import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.home.presentation.HomeActivity
 import com.sundev207.expenses.onboarding.OnboardingActivity
 
-class SplashActivity: AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
+
+    private val preferenceDataSource by lazy { PreferenceDataSource() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +25,6 @@ class SplashActivity: AppCompatActivity() {
         finish()
     }
 
-    private fun isUserOnboarded(): Boolean {
-        val preferenceDataSource = PreferenceDataSource()
-        return preferenceDataSource.getIsUserOnboarded(applicationContext)
-    }
+    private fun isUserOnboarded(): Boolean =
+        preferenceDataSource.getIsUserOnboarded(applicationContext)
 }

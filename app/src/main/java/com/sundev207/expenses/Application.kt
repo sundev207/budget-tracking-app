@@ -1,8 +1,10 @@
 package com.sundev207.expenses
 
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jakewharton.threetenabp.AndroidThreeTen
+import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.data.room.ApplicationDatabase
 
 class Application : android.app.Application() {
@@ -16,9 +18,15 @@ class Application : android.app.Application() {
     override fun onCreate() {
         super.onCreate()
         initializeThreeTeen()
+        applyTheme()
     }
 
     private fun initializeThreeTeen() {
         AndroidThreeTen.init(this)
+    }
+
+    private fun applyTheme() {
+        val theme = PreferenceDataSource().getTheme(applicationContext)
+        AppCompatDelegate.setDefaultNightMode(theme.toNightMode())
     }
 }
