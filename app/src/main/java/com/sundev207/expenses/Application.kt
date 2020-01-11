@@ -13,7 +13,6 @@ import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.data.room.ApplicationDatabase
 import com.sundev207.expenses.data.room.RoomDataStore
 import com.sundev207.expenses.data.store.DataStore
-import javax.sql.DataSource
 
 class Application : android.app.Application() {
 
@@ -60,11 +59,16 @@ class Application : android.app.Application() {
     override fun onCreate() {
         super.onCreate()
         initializeThreeTeen()
+        enqueueConfigurationSync()
         applyTheme()
     }
 
     private fun initializeThreeTeen() {
         AndroidThreeTen.init(this)
+    }
+
+    private fun enqueueConfigurationSync() {
+        configuration.enqueueSync()
     }
 
     private fun applyTheme() {
