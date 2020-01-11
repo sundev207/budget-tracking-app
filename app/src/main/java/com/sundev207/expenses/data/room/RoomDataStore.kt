@@ -1,6 +1,5 @@
 package com.sundev207.expenses.data.room
 
-import com.sundev207.expenses.Application
 import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.data.room.dao.ExpenseDao
@@ -152,17 +151,5 @@ class RoomDataStore(
 
     override fun deleteAllTags(): Completable {
         return tagDao.deleteAll()
-    }
-
-    companion object {
-
-        fun getInstance(application: Application): RoomDataStore {
-            val database = application.database
-            return RoomDataStore(
-                database.expenseDao(),
-                database.tagDao(),
-                database.expenseTagJoinDao()
-            )
-        }
     }
 }

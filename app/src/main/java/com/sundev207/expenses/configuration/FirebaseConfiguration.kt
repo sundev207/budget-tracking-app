@@ -3,7 +3,6 @@ package com.sundev207.expenses.configuration
 import android.util.Log
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
 
 class FirebaseConfiguration(
@@ -42,7 +41,5 @@ class FirebaseConfiguration(
     companion object {
         private const val TAG = "FirebaseConfiguration"
         private const val MINIMUM_FETCH_INTERVAL_SECONDS = 60L
-
-        fun getInstance(application: Application) = FirebaseConfiguration(application.remoteConfig)
     }
 }

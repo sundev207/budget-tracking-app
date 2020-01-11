@@ -9,7 +9,6 @@ import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.data.store.DataStore
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.home.domain.FilterExpensesUseCase
 import com.sundev207.expenses.home.domain.SortExpensesUseCase
 import com.sundev207.expenses.home.domain.SortTagsUseCase
@@ -168,8 +167,8 @@ class HomeFragmentModel(
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return HomeFragmentModel(
                 application,
-                DataStoreFactory.get(application),
-                PreferenceDataSource()
+                application.defaultDataStore,
+                application.preferenceDataSource
             ) as T
         }
     }

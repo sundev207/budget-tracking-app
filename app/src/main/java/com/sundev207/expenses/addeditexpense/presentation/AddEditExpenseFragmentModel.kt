@@ -10,7 +10,6 @@ import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.data.preference.PreferenceDataSource
 import com.sundev207.expenses.data.store.DataStore
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.util.reactive.Event
 import com.sundev207.expenses.util.reactive.Variable
@@ -170,8 +169,8 @@ class AddEditExpenseFragmentModel(
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return AddEditExpenseFragmentModel(
                 application,
-                DataStoreFactory.get(application),
-                PreferenceDataSource(),
+                application.defaultDataStore,
+                application.preferenceDataSource,
                 expense
             ) as T
         }
