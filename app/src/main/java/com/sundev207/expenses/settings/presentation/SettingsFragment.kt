@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.sundev207.expenses.R
-import com.sundev207.expenses.common.presentation.DarkMode
+import com.sundev207.expenses.common.presentation.Theme
 import com.sundev207.expenses.currencyselection.CurrencySelectionActivity
 import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.onboarding.OnboardingActivity
@@ -93,10 +93,10 @@ class SettingsFragment : Fragment() {
             .subscribe(::showMessage)
         compositeDisposable += model.showActivity
             .subscribe(::showActivity)
-        compositeDisposable += model.showDarkModeSelectionDialog
-            .subscribe(::showDarkModeSelectionDialog)
-        compositeDisposable += model.applyNightMode
-            .subscribe(::applyNightMode)
+        compositeDisposable += model.showThemeSelectionDialog
+            .subscribe(::showThemeSelectionDialog)
+        compositeDisposable += model.applyTheme
+            .subscribe(::applyTheme)
     }
 
     private fun selectDefaultCurrency() {
@@ -112,16 +112,16 @@ class SettingsFragment : Fragment() {
         requireActivity().startActivitySafely(intent)
     }
 
-    private fun showDarkModeSelectionDialog(darkMode: DarkMode) {
-        val dialogFragment = DarkModeSelectionDialogFragment.newInstance(darkMode)
+    private fun showThemeSelectionDialog(currentTheme: Theme) {
+        val dialogFragment = ThemeSelectionDialogFragment.newInstance(currentTheme)
         dialogFragment.onThemeSelected = { model.themeSelected(it) }
-        dialogFragment.show(requireFragmentManager(), DarkModeSelectionDialogFragment.TAG)
+        dialogFragment.show(requireFragmentManager(), ThemeSelectionDialogFragment.TAG)
     }
 
-    private fun applyNightMode(nightMode: Int) {
+    private fun applyTheme(theme: Theme) {
         // Naively add short delay to make sure that all animations are finished.
         Handler().postDelayed({
-            AppCompatDelegate.setDefaultNightMode(nightMode)
+            AppCompatDelegate.setDefaultNightMode(theme.toNightMode())
         }, NIGHT_MODE_APPLICATION_DELAY)
     }
 
