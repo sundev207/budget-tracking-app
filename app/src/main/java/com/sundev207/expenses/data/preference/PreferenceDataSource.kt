@@ -3,7 +3,7 @@ package com.sundev207.expenses.data.preference
 import android.content.Context
 import androidx.preference.PreferenceManager
 import com.sundev207.expenses.R
-import com.sundev207.expenses.common.presentation.DarkMode
+import com.sundev207.expenses.common.presentation.Theme
 import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.home.presentation.DateRange
 
@@ -45,16 +45,16 @@ class PreferenceDataSource {
         preferences.edit().putBoolean(key, isUserOnboarded).apply()
     }
 
-    fun getDarkMode(context: Context): DarkMode {
+    fun getTheme(context: Context): Theme {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val key = getDarkModeKey(context)
-        return preferences.getString(key, null)?.let { DarkMode.valueOf(it) } ?: DarkMode.SYSTEM_DEFAULT
+        val key = getThemeKey(context)
+        return preferences.getString(key, null)?.let { Theme.valueOf(it) } ?: Theme.SYSTEM_DEFAULT
     }
 
-    fun setDarkMode(context: Context, darkMode: DarkMode) {
+    fun setTheme(context: Context, theme: Theme) {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val key = getDarkModeKey(context)
-        preferences.edit().putString(key, darkMode.name).apply()
+        val key = getThemeKey(context)
+        preferences.edit().putString(key, theme.name).apply()
     }
 
     private fun getDefaultCurrencyKey(context: Context) =
@@ -66,6 +66,6 @@ class PreferenceDataSource {
     private fun getIsUserOnboardedKey(context: Context) =
         context.getString(R.string.key_is_user_onboarded)
 
-    private fun getDarkModeKey(context: Context) =
-        context.getString(R.string.key_dark_mode)
+    private fun getThemeKey(context: Context) =
+        context.getString(R.string.key_theme)
 }

@@ -13,7 +13,6 @@ import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
 import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.store.DataStore
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.util.extensions.toDate
 import jxl.Workbook
 import jxl.write.*
@@ -29,7 +28,7 @@ class ExpenseExportWorker(context: Context, workerParams: WorkerParameters) :
     CoroutineWorker(context, workerParams) {
 
     private val dataStore: DataStore by lazy {
-        DataStoreFactory.get(applicationContext as Application)
+        (applicationContext as Application).defaultDataStore
     }
 
     override suspend fun doWork() = coroutineScope {

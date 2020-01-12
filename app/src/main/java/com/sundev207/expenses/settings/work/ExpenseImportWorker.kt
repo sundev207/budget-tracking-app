@@ -11,7 +11,6 @@ import com.sundev207.expenses.data.model.Currency
 import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.data.store.DataStore
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.util.extensions.toLocalDate
 import jxl.DateCell
 import jxl.NumberCell
@@ -25,7 +24,7 @@ class ExpenseImportWorker(context: Context, params: WorkerParameters) :
     CoroutineWorker(context, params) {
 
     private val dataStore: DataStore by lazy {
-        DataStoreFactory.get(applicationContext as Application)
+        (applicationContext as Application).defaultDataStore
     }
 
     override suspend fun doWork() = coroutineScope {

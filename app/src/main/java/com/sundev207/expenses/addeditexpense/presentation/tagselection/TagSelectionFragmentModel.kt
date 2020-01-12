@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.sundev207.expenses.Application
 import com.sundev207.expenses.data.model.Tag
 import com.sundev207.expenses.data.store.DataStore
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.util.extensions.plusAssign
 import com.sundev207.expenses.util.reactive.DataEvent
 import com.sundev207.expenses.util.reactive.Event
@@ -119,7 +118,7 @@ class TagSelectionFragmentModel(private val dataStore: DataStore) : ViewModel() 
     class Factory(private val application: Application) : ViewModelProvider.NewInstanceFactory() {
 
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return TagSelectionFragmentModel(DataStoreFactory.get(application)) as T
+            return TagSelectionFragmentModel(application.defaultDataStore) as T
         }
     }
 

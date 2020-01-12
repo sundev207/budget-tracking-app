@@ -9,7 +9,6 @@ import com.sundev207.expenses.Application
 import com.sundev207.expenses.R
 import com.sundev207.expenses.data.model.Expense
 import com.sundev207.expenses.data.model.Tag
-import com.sundev207.expenses.data.store.DataStoreFactory
 import com.sundev207.expenses.expensedetail.domain.DeleteExpenseUseCase
 import com.sundev207.expenses.expensedetail.domain.ObserveExpenseUseCase
 import com.sundev207.expenses.util.READABLE_DATE_FORMAT
@@ -103,7 +102,7 @@ class ExpenseDetailFragmentModel(
         ViewModelProvider.NewInstanceFactory() {
 
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            val dataStore = DataStoreFactory.get(application)
+            val dataStore = application.defaultDataStore
 
             val observeExpenseUseCase = ObserveExpenseUseCase(dataStore)
             val deleteExpenseUseCase = DeleteExpenseUseCase(dataStore)
